@@ -1,4 +1,4 @@
-# Tante Mathildas Kirschkuchen (???)
+# Tante Mathildas Kirschkuchen
 
 **Zutaten:**
 
