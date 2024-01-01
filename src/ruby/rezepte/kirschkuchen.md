@@ -5,7 +5,7 @@
 - 125 g Butter
 - 125 g Zucker
 - 3 Eier
-- - 200 g Weizenmehl
+- 200 g Weizenmehl
 - 1 Prise Salz
 - 2 TL Backpulver
 - 2-4 EL Milch
