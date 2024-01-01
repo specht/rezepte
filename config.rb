@@ -9,7 +9,7 @@ $VERBOSE = nil
 require './env.rb' if File.exist?('env.rb')
 $VERBOSE = warn_level
 
-PROFILE = [:static, :dynamic, :neo4j]
+PROFILE = [:static, :dynamic]
 
 STAGING = File::dirname(File::expand_path(__FILE__)).include?('staging')
 PROJECT_NAME_FIXED = PROJECT_NAME + (STAGING ? 'staging' : '') + (DEVELOPMENT ? 'dev' : '')
