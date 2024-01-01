@@ -143,7 +143,7 @@ class Main < Sinatra::Base
 
         setup = SetupDatabase.new()
         setup.setup(self)
-        setup.wait_for_neo4j()
+        # setup.wait_for_neo4j()
         $neo4j.setup_constraints_and_indexes(CONSTRAINTS_LIST, INDEX_LIST)
         debug "Server is up and running!"
 
