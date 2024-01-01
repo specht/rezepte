@@ -2,6 +2,7 @@ require './include/helper.rb'
 require 'base64'
 require 'cgi'
 require 'digest'
+require 'kramdown'
 require 'mail'
 require 'neo4j_bolt'
 require './credentials.rb'
@@ -265,13 +266,34 @@ class Main < Sinatra::Base
     end
 
     def load_rezept(tag)
-        data = File.read("/app/rezepte/#{tag}.md")
-        STDERR.puts data
+        assert(!tag.include?('..'))
+        data = File.read("/src/ruby/rezepte/#{tag}.md")
+        html = Kramdown::Document.new(data).to_html
+        {:content => data, :html => html}
+    end
+
+    def list_rezepte()
+        StringIO.open do |io|
+            tags = []
+            heading_for_tag = {}
+            Dir['/src/ruby/rezepte/*.md'].each do |path|
+                tag = File.basename(path).sub('.md', '')
+                heading = File.read("/src/ruby/rezepte/#{tag}.md").strip.split("\n").first.gsub('#', '').strip
+                heading_for_tag[tag] = heading
+                tags << tag
+            end
+            tags.sort do |a, b|
+                heading_for_tag[a].downcase <=> heading_for_tag[b].downcase
+            end.each do |tag|
+                io.puts "<div><a href='/rezept?#{tag}'>#{heading_for_tag[tag]}</a></div>"
+            end
+            io.string
+        end
     end
 
     post '/api/load_rezept' do
         data = parse_request_data(:required_keys => [:tag])
-        load_rezept(data[:tag])
+        respond(:data => load_rezept(data[:tag]))
     end
 
     get '/*' do

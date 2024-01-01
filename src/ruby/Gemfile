@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'kramdown'
 gem 'mail'
 gem 'neo4j_bolt'
 gem 'rerun'

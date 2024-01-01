@@ -3,16 +3,14 @@
         let tag = window.location.search.replace('?', '');
         api_call('/api/load_rezept', {tag: tag}, function(data) {
             console.log(data);
-
+            $('#content').html(data.data.html);
         });
     });
 </script>
 <div class='container'>
     <div class='row'>
         <div class='col-md-12'>
-            <p>
-                Hier ist das coole Rezept!
-            </p>
+            <div id="content"></div>
         </div>
     </div>
 </div>
