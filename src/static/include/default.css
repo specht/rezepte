@@ -3,6 +3,17 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 13pt;
     margin-bottom: 100px;
+    background-color: #111;
+    color: #fff;
+}
+
+img { 
+    border-radius: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: #ef3dc8
 }
 
 h1, h2 {
