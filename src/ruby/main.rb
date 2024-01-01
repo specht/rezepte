@@ -111,7 +111,7 @@ end
 class SetupDatabase
     include Neo4jBolt
 
-    # def setup(main)
+    def setup(main)
     #     delay = 1
     #     10.times do
     #         begin
@@ -124,7 +124,7 @@ class SetupDatabase
     #             delay += 1
     #         end
     #     end
-    # end
+    end
 end
 
 class Main < Sinatra::Base
