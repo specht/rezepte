@@ -111,20 +111,20 @@ end
 class SetupDatabase
     include Neo4jBolt
 
-    def setup(main)
-        delay = 1
-        10.times do
-            begin
-                neo4j_query("MATCH (n) RETURN n LIMIT 1;")
-                break
-            rescue
-                debug $!
-                debug "Retrying setup after #{delay} seconds..."
-                sleep delay
-                delay += 1
-            end
-        end
-    end
+    # def setup(main)
+    #     delay = 1
+    #     10.times do
+    #         begin
+    #             neo4j_query("MATCH (n) RETURN n LIMIT 1;")
+    #             break
+    #         rescue
+    #             debug $!
+    #             debug "Retrying setup after #{delay} seconds..."
+    #             sleep delay
+    #             delay += 1
+    #         end
+    #     end
+    # end
 end
 
 class Main < Sinatra::Base
