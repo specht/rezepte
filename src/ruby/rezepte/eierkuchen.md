@@ -6,6 +6,7 @@ Für 2 Portionen
 - 250 ml Milch
 - 100 g Mehl
 - 1 Ei
+- Toppings: Nutella, Banane, Apfelmus, Zimt und Zucker etc.
 
   **Zubereitung:**
   - alles zu einem Teig verrühren
