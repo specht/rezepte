@@ -4,20 +4,20 @@ require 'cgi'
 require 'digest'
 require 'kramdown'
 require 'mail'
-require 'neo4j_bolt'
+# require 'neo4j_bolt'
 require './credentials.rb'
 require 'securerandom'
 require 'sinatra/base'
 require 'sinatra/cookies'
 
-Neo4jBolt.bolt_host = 'neo4j'
-Neo4jBolt.bolt_port = 7687
+# Neo4jBolt.bolt_host = 'neo4j'
+# Neo4jBolt.bolt_port = 7687
 
-class Neo4jGlobal
-    include Neo4jBolt
-end
+# class Neo4jGlobal
+#     include Neo4jBolt
+# end
 
-$neo4j = Neo4jGlobal.new
+# $neo4j = Neo4jGlobal.new
 
 def assert(condition, message = 'assertion failed')
     raise message unless condition
@@ -109,7 +109,7 @@ def deliver_mail(plain_text = nil, &block)
 end
 
 class SetupDatabase
-    include Neo4jBolt
+    # include Neo4jBolt
 
     def setup(main)
     #     delay = 1
@@ -128,7 +128,7 @@ class SetupDatabase
 end
 
 class Main < Sinatra::Base
-    include Neo4jBolt
+    # include Neo4jBolt
     helpers Sinatra::Cookies
 
     configure do
@@ -144,58 +144,58 @@ class Main < Sinatra::Base
         setup = SetupDatabase.new()
         setup.setup(self)
         # setup.wait_for_neo4j()
-        $neo4j.setup_constraints_and_indexes(CONSTRAINTS_LIST, INDEX_LIST)
+        # $neo4j.setup_constraints_and_indexes(CONSTRAINTS_LIST, INDEX_LIST)
         debug "Server is up and running!"
 
         # create admin users in database if they don't exist yet
-        ADMIN_USERS.each do |email|
-            $neo4j.neo4j_query(<<~END_OF_QUERY, {:email => email})
-                MERGE (u:User {email: $email});
-            END_OF_QUERY
-        end
+        # ADMIN_USERS.each do |email|
+        #     $neo4j.neo4j_query(<<~END_OF_QUERY, {:email => email})
+        #         MERGE (u:User {email: $email});
+        #     END_OF_QUERY
+        # end
     end
 
     before '*' do
         @session_user = nil
-        if request.cookies.include?('sid')
-            sid = request.cookies['sid']
-            if (sid.is_a? String) && (sid =~ /^[0-9A-Za-z]+$/)
-                first_sid = sid.split(',').first
-                if first_sid =~ /^[0-9A-Za-z]+$/
-                    results = neo4j_query(<<~END_OF_QUERY, :sid => first_sid).to_a
-                        MATCH (s:Session {sid: $sid})-[:FOR]->(u:User)
-                        RETURN s, u;
-                    END_OF_QUERY
-                    if results.size == 1
-                        begin
-                            session = results.first['s']
-                            session_expiry = session[:expires]
-                            if DateTime.parse(session_expiry) > DateTime.now
-                                email = results.first['u'][:email]
-                                @session_user = {
-                                    :email => email.downcase,
-                                    :name => results.first['u'][:name],
-                                    :alias => results.first['u'][:alias],
-                                    :affiliation => results.first['u'][:affiliation],
-                                    :grade => results.first['u'][:grade],
-                                    :want_mails => results.first['u'][:want_mails].nil? ? true : results.first['u'][:want_mails],
-                                    :consent_real_name => results.first['u'][:consent_real_name],
-                                    :will_show_up => results.first['u'][:will_show_up] || 'no',
-                                    :photo_sha1 => results.first['u'][:photo_sha1],
-                                    :photo_mime_type => results.first['u'][:photo_mime_type],
-                                }
-                            end
-                        rescue
-                            # something went wrong, delete the session
-                            results = neo4j_query(<<~END_OF_QUERY, :sid => first_sid).to_a
-                                MATCH (s:Session {sid: $sid})
-                                DETACH DELETE s;
-                            END_OF_QUERY
-                        end
-                    end
-                end
-            end
-        end
+        # if request.cookies.include?('sid')
+        #     sid = request.cookies['sid']
+        #     if (sid.is_a? String) && (sid =~ /^[0-9A-Za-z]+$/)
+        #         first_sid = sid.split(',').first
+        #         if first_sid =~ /^[0-9A-Za-z]+$/
+        #             results = neo4j_query(<<~END_OF_QUERY, :sid => first_sid).to_a
+        #                 MATCH (s:Session {sid: $sid})-[:FOR]->(u:User)
+        #                 RETURN s, u;
+        #             END_OF_QUERY
+        #             if results.size == 1
+        #                 begin
+        #                     session = results.first['s']
+        #                     session_expiry = session[:expires]
+        #                     if DateTime.parse(session_expiry) > DateTime.now
+        #                         email = results.first['u'][:email]
+        #                         @session_user = {
+        #                             :email => email.downcase,
+        #                             :name => results.first['u'][:name],
+        #                             :alias => results.first['u'][:alias],
+        #                             :affiliation => results.first['u'][:affiliation],
+        #                             :grade => results.first['u'][:grade],
+        #                             :want_mails => results.first['u'][:want_mails].nil? ? true : results.first['u'][:want_mails],
+        #                             :consent_real_name => results.first['u'][:consent_real_name],
+        #                             :will_show_up => results.first['u'][:will_show_up] || 'no',
+        #                             :photo_sha1 => results.first['u'][:photo_sha1],
+        #                             :photo_mime_type => results.first['u'][:photo_mime_type],
+        #                         }
+        #                     end
+        #                 rescue
+        #                     # something went wrong, delete the session
+        #                     results = neo4j_query(<<~END_OF_QUERY, :sid => first_sid).to_a
+        #                         MATCH (s:Session {sid: $sid})
+        #                         DETACH DELETE s;
+        #                     END_OF_QUERY
+        #                 end
+        #             end
+        #         end
+        #     end
+        # end
     end
 
     def this_is_a_page_for_logged_in_users!
@@ -206,59 +206,59 @@ class Main < Sinatra::Base
         return (!@session_user.nil?)
     end
 
-    post '/api/request_login' do
-        data = parse_request_data(:required_keys => [:email])
-        email = data[:email].downcase
+    # post '/api/request_login' do
+    #     data = parse_request_data(:required_keys => [:email])
+    #     email = data[:email].downcase
 
-        tag = RandomTag::generate(12)
-        srand(Digest::SHA2.hexdigest(LOGIN_CODE_SALT).to_i + (Time.now.to_f * 1000000).to_i)
-        random_code = (0..5).map { |x| rand(10).to_s }.join('')
-        random_code = '123456' if DEVELOPMENT
+    #     tag = RandomTag::generate(12)
+    #     srand(Digest::SHA2.hexdigest(LOGIN_CODE_SALT).to_i + (Time.now.to_f * 1000000).to_i)
+    #     random_code = (0..5).map { |x| rand(10).to_s }.join('')
+    #     random_code = '123456' if DEVELOPMENT
 
-        neo4j_query_expect_one(<<~END_OF_QUERY, {:email => email})
-            MATCH (u:User {email: $email})
-            RETURN u.email;
-        END_OF_QUERY
+    #     neo4j_query_expect_one(<<~END_OF_QUERY, {:email => email})
+    #         MATCH (u:User {email: $email})
+    #         RETURN u.email;
+    #     END_OF_QUERY
 
-        neo4j_query_expect_one(<<~END_OF_QUERY, {:email => email, :tag => tag, :code => random_code})
-            MATCH (u:User {email: $email})
-            CREATE (r:LoginRequest)-[:FOR]->(u)
-            SET r.tag = $tag
-            SET r.code = $code
-            RETURN u.email;
-        END_OF_QUERY
+    #     neo4j_query_expect_one(<<~END_OF_QUERY, {:email => email, :tag => tag, :code => random_code})
+    #         MATCH (u:User {email: $email})
+    #         CREATE (r:LoginRequest)-[:FOR]->(u)
+    #         SET r.tag = $tag
+    #         SET r.code = $code
+    #         RETURN u.email;
+    #     END_OF_QUERY
 
-        deliver_mail do
-            to data[:email]
-            # bcc SMTP_FROM
-            from SMTP_FROM
+    #     deliver_mail do
+    #         to data[:email]
+    #         # bcc SMTP_FROM
+    #         from SMTP_FROM
 
-            subject "Dein Anmeldecode lautet #{random_code}"
+    #         subject "Dein Anmeldecode lautet #{random_code}"
 
-            StringIO.open do |io|
-                io.puts "<p>Hallo!</p>"
-                io.puts "<p>Dein Anmeldecode lautet:</p>"
-                io.puts "<p style='font-size: 200%;'>#{random_code}</p>"
-                io.puts "<p>Der Code ist für zehn Minuten gültig. Nachdem du dich angemeldet hast, bleibst du für ein ganzes Jahr angemeldet (falls du dich nicht wieder abmeldest).</p>"
-                io.puts "<p>Falls du diese E-Mail nicht angefordert hast, hat jemand versucht, sich mit deiner E-Mail-Adresse auf <a href='https://#{WEBSITE_HOST}/'>https://#{WEBSITE_HOST}/</a> anzumelden. In diesem Fall musst du nichts weiter tun (es sei denn, du befürchtest, dass jemand anderes Zugriff auf dein E-Mail-Konto hat – dann solltest du dein E-Mail-Passwort ändern).</p>"
-                io.string
-            end
-        end
-        respond(:ok => 'yay', :tag => tag)
-    end
+    #         StringIO.open do |io|
+    #             io.puts "<p>Hallo!</p>"
+    #             io.puts "<p>Dein Anmeldecode lautet:</p>"
+    #             io.puts "<p style='font-size: 200%;'>#{random_code}</p>"
+    #             io.puts "<p>Der Code ist für zehn Minuten gültig. Nachdem du dich angemeldet hast, bleibst du für ein ganzes Jahr angemeldet (falls du dich nicht wieder abmeldest).</p>"
+    #             io.puts "<p>Falls du diese E-Mail nicht angefordert hast, hat jemand versucht, sich mit deiner E-Mail-Adresse auf <a href='https://#{WEBSITE_HOST}/'>https://#{WEBSITE_HOST}/</a> anzumelden. In diesem Fall musst du nichts weiter tun (es sei denn, du befürchtest, dass jemand anderes Zugriff auf dein E-Mail-Konto hat – dann solltest du dein E-Mail-Passwort ändern).</p>"
+    #             io.string
+    #         end
+    #     end
+    #     respond(:ok => 'yay', :tag => tag)
+    # end
 
-    def logout()
-        sid = request.cookies['sid']
-        if sid =~ /^[0-9A-Za-z,]+$/
-            current_sid = sid.split(',').first
-            if current_sid =~ /^[0-9A-Za-z]+$/
-                result = neo4j_query(<<~END_OF_QUERY, :sid => current_sid)
-                    MATCH (s:Session {sid: $sid})
-                    DETACH DELETE s;
-                END_OF_QUERY
-            end
-        end
-    end
+    # def logout()
+    #     sid = request.cookies['sid']
+    #     if sid =~ /^[0-9A-Za-z,]+$/
+    #         current_sid = sid.split(',').first
+    #         if current_sid =~ /^[0-9A-Za-z]+$/
+    #             result = neo4j_query(<<~END_OF_QUERY, :sid => current_sid)
+    #                 MATCH (s:Session {sid: $sid})
+    #                 DETACH DELETE s;
+    #             END_OF_QUERY
+    #         end
+    #     end
+    # end
 
     post '/api/logout' do
         logout()
