@@ -1,0 +1,18 @@
+<script>
+    window.addEventListener('load', function() {
+        let tag = window.location.search.replace('?', '');
+        api_call('/api/load_rezept', {tag: tag}, function(data) {
+            console.log(data);
+
+        });
+    });
+</script>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <p>
+                Hier ist das coole Rezept!
+            </p>
+        </div>
+    </div>
+</div>

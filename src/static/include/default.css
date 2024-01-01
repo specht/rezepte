@@ -1,11 +1,12 @@
 body {
-    font-family: 'Alegreya', sans-serif;
+    /* font-family: 'Alegreya', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     font-size: 13pt;
     margin-bottom: 100px;
 }
 
 h1, h2 {
-    font-family: 'Alegreya SC', sans-serif;
+    /* font-family: 'Alegreya SC', sans-serif; */
     font-weight: 500;
     margin: 1em 0;
 }
@@ -45,8 +46,7 @@ footer a:hover {
 }
 
 .title {
-    font-family: 'Alegreya SC', sans-serif;
-    font-weight: 500;
+    font-weight: normal;
     font-size: 3rem;
     padding: 0.5em 0;
 }

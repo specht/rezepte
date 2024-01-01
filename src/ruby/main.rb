@@ -264,6 +264,16 @@ class Main < Sinatra::Base
         respond(:ok => 'yeah')
     end
 
+    def load_rezept(tag)
+        data = File.read("/app/rezepte/#{tag}.md")
+        STDERR.puts data
+    end
+
+    post '/api/load_rezept' do
+        data = parse_request_data(:required_keys => [:tag])
+        load_rezept(data[:tag])
+    end
+
     get '/*' do
         path = request.path
         if path == '/'
