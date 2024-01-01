@@ -1,5 +1,7 @@
 # Spinatlasagne
 
+**Zutaten:**
+
 **Tomatensoße:**
 
 - Olivenöl
@@ -25,4 +27,9 @@
 - Gouda
 - Semmelbrösel
 
-Bei 170°C Umluft 40 Minuten backen.
+**Zubereitung:**
+
+- Tomatensauce und Spinat zubereiten
+- Käse reiben und Semmelbröseln vermischen
+- Lasagne schichten und mit Käse bestreuen 
+- bei 170°C Umluft 40 Minuten backen
