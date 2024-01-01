@@ -172,11 +172,10 @@ unless DEVELOPMENT
     end
 end
 
-docker_compose[:networks] = {DOCKER_NETWORK_NAME => {}}
-docker_compose[:services].each_pair do |k, v|
-    v[:networks] = {DOCKER_NETWORK_NAME => {:aliases => [k]}}
-end
-
+# docker_compose[:networks] = {DOCKER_NETWORK_NAME => {}}
+# docker_compose[:services].each_pair do |k, v|
+#     v[:networks] = {DOCKER_NETWORK_NAME => {:aliases => [k]}}
+# end
 
 File::open('docker-compose.yaml', 'w') do |f|
     f.puts "# NOTICE: don't edit this file directly, use config.rb instead!\n"
