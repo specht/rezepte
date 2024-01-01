@@ -4,7 +4,7 @@ Für 3 Personen
 
 **Zutaten:**
 
-- 1l Milch
+- 1 l Milch
 - 110 g Grieß
 - 55 g Zucker
 - Kirschen oder Pfirsiche (evtl. Zimt und Zucker)
