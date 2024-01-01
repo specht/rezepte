@@ -16,7 +16,7 @@ Für 4 Portionen
 - 1 Knoblauchzehe
 - 1 säuerlicher Apfel
 - 4 mittelgroße Gewürzgurken
-- - Salz und Pfeffer
+- Salz und Pfeffer
 - 1/2 Bund Frühlingszwiebeln oder Schnittlauch
 
 **Zubereitung:**
