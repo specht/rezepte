@@ -2,9 +2,7 @@
 
 **Zutaten:**
 
-- Reis oder Quinoa oder Couscous
-- Gemüse: Mango, Edamame, Ananas, Frühlingszwiebel, Tomaten, gegrillte Paprika, Avocado
-- Belag: Sesam, Schnittlauch
-- Salz, Pfeffer, Chili
-- evtl. Falafel
-- evtl. Teriyaki Soße
+- Basmati Reis
+- Gemüse: Mango, Ananas, Frühlingszwiebel, Tomaten, Oliven
+- Belag: Sesam, evtl. Schnittlauch und Granatapfel
+- Vleisch: anbraten mit Honig, Sesamöl, Sojasauce
