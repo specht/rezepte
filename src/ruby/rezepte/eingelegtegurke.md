@@ -19,7 +19,7 @@
 **Zubereitung:**
 
 - Gurken in Spiralen oder dünne Streifen schneiden
-- Gurken mit salz bestreuen und 10 Minuten einwirken lassen
+- Gurken mit Salz bestreuen und 10 Minuten einwirken lassen
 - Sojasauce, Reisessig und Zucker vermischen und erhitzen, bis sich der Zucker gelöst hat
 - Knoblauch, Ingwersaft und Chiliflocken hinzugeben
 - Gurken gut abspülen

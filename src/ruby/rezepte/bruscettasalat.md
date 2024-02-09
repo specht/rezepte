@@ -1,6 +1,6 @@
 # Bruscettasalat
 
-Für zwei Personen
+Für 2 Personen
 
 **Zutaten:**
 
