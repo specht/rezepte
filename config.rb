@@ -126,14 +126,14 @@ if PROFILE.include?(:dynamic)
     env << "WEBSITE_HOST=#{WEBSITE_HOST}"
     docker_compose[:services][:ruby] = {
         :build => './docker/ruby',
-        :volumes => ['./src:/src:ro',
+        :volumes => ['./:/app',
                      "#{RAW_PATH}:/raw",
                      "#{GEN_PATH}:/gen",
                     ],
         :environment => env,
-        :working_dir => '/src/ruby',
+        :working_dir => '/app/src/ruby',
         :entrypoint =>  DEVELOPMENT ?
-            'rerun -b --dir /src/ruby -s SIGKILL \'rackup --host 0.0.0.0\'' :
+            'rerun -b --dir /app/src/ruby -s SIGKILL \'rackup --host 0.0.0.0\'' :
             'rackup --host 0.0.0.0'
     }
     if PROFILE.include?(:neo4j)
@@ -194,4 +194,6 @@ FileUtils::mkpath(RAW_PATH)
 FileUtils::mkpath(File.join(RAW_PATH, 'uploads'))
 FileUtils::mkpath(GEN_PATH)
 
-system("docker-compose --project-name #{PROJECT_NAME_FIXED} #{ARGV.join(' ')}")
+`docker compose 2> /dev/null`
+DOCKER_COMPOSE = ($? == 0) ? 'docker compose' : 'docker-compose'
+system("#{DOCKER_COMPOSE} --project-name #{PROJECT_NAME_FIXED} #{ARGV.join(' ')}")

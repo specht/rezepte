@@ -265,9 +265,14 @@ class Main < Sinatra::Base
         respond(:ok => 'yeah')
     end
 
+    post '/api/update_rezepte' do
+        STDERR.puts "Updating drafts... (git pull)"
+        system("git pull")
+    end
+
     def load_rezept(tag)
         assert(!tag.include?('..'))
-        data = File.read("/src/ruby/rezepte/#{tag}.md")
+        data = File.read("/app/src/ruby/rezepte/#{tag}.md")
         html = Kramdown::Document.new(data).to_html
         {:content => data, :html => html}
     end
@@ -276,9 +281,9 @@ class Main < Sinatra::Base
         StringIO.open do |io|
             tags = []
             heading_for_tag = {}
-            Dir['/src/ruby/rezepte/*.md'].each do |path|
+            Dir['/app/src/ruby/rezepte/*.md'].each do |path|
                 tag = File.basename(path).sub('.md', '')
-                heading = File.read("/src/ruby/rezepte/#{tag}.md").strip.split("\n").first.gsub('#', '').strip
+                heading = File.read("/app/src/ruby/rezepte/#{tag}.md").strip.split("\n").first.gsub('#', '').strip
                 heading_for_tag[tag] = heading
                 tags << tag
             end
@@ -336,9 +341,9 @@ class Main < Sinatra::Base
             redirect "#{WEB_ROOT}/", 302
         end
         path = path + '.html' unless path.include?('.')
-        respond_with_file(File.join('/src/static', path)) do |content, mime_type|
+        respond_with_file(File.join('/app/src/static', path)) do |content, mime_type|
             if mime_type == 'text/html'
-                template = File.read(File.join('/src/static', '_template.html'))
+                template = File.read(File.join('/app/src/static', '_template.html'))
                 template.sub!('#{CONTENT}', content)
                 s = template
                 while true
