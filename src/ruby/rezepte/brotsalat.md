@@ -7,6 +7,7 @@ Für 2 Personen
 - 2 Romanasalate
 - 1/2 Gurke
 - 1 kleine Packung Cocktailtomaten
+- 1 Apfel
 - Kürbiskerne
 - 1 Ciabatta
 - Olivenöl
