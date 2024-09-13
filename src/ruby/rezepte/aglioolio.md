@@ -2,8 +2,8 @@
 
 **Zutaten:**
 
-- Nudeln
-- viel Knoblauch
+- Spaghetti
+- viel Knoblauch und Chilis
 - Olivenöl
 - Parmesan
 - Eier
