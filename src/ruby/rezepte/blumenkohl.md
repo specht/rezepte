@@ -1,30 +1,38 @@
-# Blumenkohl mit brauner Butter, Kartoffelbrei und Bratwürstchen
+# Blumenkohl mit brauner Butter
 
 Für 2 Portionen
 
 **Zutaten:**
 
-- 1 mittelgroßer Blumenkohl
+- 1 ganzer Blumenkohl
 - 600 g mehligkochende Kartoffeln
 - 100–150 ml Milch
-- 30 g Butter für den Kartoffelbrei
-- 125 g Butter für die braune Butter
-- 4 kleine Bratwürstchen (oder 2 große)
-- 1 EL Öl zum Braten
+- 30 g Butter oder Rama für den Kartoffelbrei
+- 125 g Butter oder Rama für die Semmelbutter
+- 4 EL Semmelbrösel
+- 4 Würstchen (z. B. Bratwürstchen)
+- etwas Öl zum Braten
 - Salz
-- frisch geriebene Muskatnuss
-- Pfeffer nach Geschmack
+- Muskatnuss
+- Pfeffer
 
 **Zubereitung:**
 
-- Kartoffeln schälen, in gleich große Stücke schneiden und in Salzwasser etwa 15–20 Minuten weich kochen.
-- Blumenkohl putzen und im Ganzen in einen Dämpfeinsatz über etwas kochendem Wasser setzen. Zugedeckt etwa 20–25 Minuten dämpfen, bis ein Messer leicht in den Strunk gleitet. Erst nach dem Garen salzen.
-- Bratwürstchen in einer Pfanne mit etwas Öl bei mittlerer Hitze rundherum goldbraun braten, je nach Dicke etwa 8–12 Minuten. Darauf achten, dass sie innen vollständig durchgegart sind.
-- Für den Kartoffelbrei die Kartoffeln abgießen und kurz ausdampfen lassen. Milch erwärmen und mit 30 g Butter zu den Kartoffeln geben. Mit einem Kartoffelstampfer cremig stampfen; nach Bedarf mehr Milch zugeben. Mit Salz und Muskatnuss abschmecken. Nicht mit dem Pürierstab bearbeiten, sonst wird der Brei klebrig.
-- Für die braune Butter 125 g Butter in einem möglichst hellen kleinen Topf bei mittlerer Hitze schmelzen. Zunächst schäumt und blubbert sie; dabei gelegentlich schwenken oder rühren. Nach etwa 5–8 Minuten werden die Milchbestandteile am Boden gold- bis haselnussbraun und die Butter duftet nussig.
-- Sobald die Butter schön braun ist, sofort in ein kühles Gefäß umgießen, damit sie nicht nachdunkelt und verbrennt. Die kleinen braunen Röstpartikel unbedingt mitnehmen.
-- Blumenkohl mit Kartoffelbrei und Bratwürstchen auf Tellern anrichten. Die reichliche braune Butter über den Blumenkohl und nach Belieben auch über den Kartoffelbrei geben. Mit etwas Salz und Muskatnuss abschmecken.
+- Kartoffeln schälen, in Stücke schneiden und in Salzwasser ca. 20 Minuten weich kochen.
+- Blumenkohl putzen, den Strunk etwas kürzen und den ganzen Kopf in einem Dämpfeinsatz über kochendem Wasser ca. 20–25 Minuten dämpfen, bis er weich, aber noch bissfest ist.
+- Würstchen in etwas Öl bei mittlerer Hitze rundherum goldbraun braten.
+- Für die Semmelbutter 125 g Butter oder Rama in einer Pfanne bei mittlerer Hitze schmelzen.
+- Semmelbrösel dazugeben und unter ständigem Rühren langsam goldbraun rösten, bis sie angenehm nussig duften. Nicht zu dunkel werden lassen!
+- Semmelbutter mit einer Prise Salz und etwas frisch geriebener Muskatnuss würzen.
+- Kartoffeln abgießen und kurz ausdampfen lassen.
+- Milch erwärmen und zusammen mit 30 g Butter oder Rama zu den Kartoffeln geben.
+- Kartoffeln mit einem Kartoffelstampfer zu einem cremigen Brei verarbeiten. Mit Salz und Muskatnuss abschmecken.
+- Blumenkohl auf einer Platte anrichten und großzügig mit der heißen braunen Semmelbutter übergießen.
+- Mit Kartoffelbrei und gebratenen Würstchen servieren.
 
-**Alternative mit Rama:**
+**Tipps:**
 
-- Statt der 125 g Butter etwa 100–125 g Rama aus dem Becher verwenden, sofern sie laut Packung zum Braten geeignet ist. Bei mittlerer Hitze schmelzen und 2–3 EL Semmelbrösel darin goldbraun rösten. Mit Salz und Muskatnuss abschmecken. Das ergibt eine leckere Bröselsoße, aber keine echte braune Butter mit nussig gerösteten Milchbestandteilen.
+- Für besonders viel Soße 150 g Butter oder Rama und 5 EL Semmelbrösel verwenden.
+- Die Semmelbrösel sollen schön goldbraun und knusprig werden. Bei Rama kommt das Röstaroma vor allem von den Semmelbröseln.
+- Den Kartoffelbrei nicht mit dem Pürierstab bearbeiten, sonst wird er klebrig.
+- Die Semmelbutter erst kurz vor dem Servieren zubereiten, damit die Brösel knusprig bleiben.
